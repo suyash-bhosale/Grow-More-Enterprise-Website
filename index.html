@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
+    /* Initially hide the content */
+    body {
+      display: none;
+    }
+
     .mobile-menu { display: none; }
     @media (max-width: 768px) {
       .desktop-menu { display: none; }
@@ -30,10 +35,13 @@
     }
   </style>
   <script>
+    // Function to set language
     function setLanguage(lang) {
       document.querySelectorAll('[data-en]').forEach(el => {
         el.textContent = el.getAttribute(`data-${lang}`);
       });
+      // Show the content after language is selected
+      document.body.style.display = "block";
     }
 
     function toggleGuide() {
